@@ -506,7 +506,7 @@ extension DatadogCore: Storage {
     }
 }
 #if SPM_BUILD
-import DatadogPrivate
+@_implementationOnly import DatadogPrivate
 #endif
 
 internal let registerObjcExceptionHandlerOnce: () -> Void = {

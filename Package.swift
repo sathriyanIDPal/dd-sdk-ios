@@ -68,7 +68,13 @@ let package = Package(
             resources: [
                 .copy("Resources/PrivacyInfo.xcprivacy")
             ],
-            swiftSettings: [.define("SPM_BUILD")]
+            swiftSettings: [
+                .define("SPM_BUILD"),
+                .unsafeFlags([
+                    "-enable-library-evolution",
+                    "-emit-module-interface"
+                ])
+            ]
         ),
         .target(
             name: "DatadogObjc",
