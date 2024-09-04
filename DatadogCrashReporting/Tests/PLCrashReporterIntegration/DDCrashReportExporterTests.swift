@@ -5,7 +5,7 @@
  */
 
 import XCTest
-import CrashReporter
+@_implementationOnly import CrashReporter
 
 @testable import DatadogCrashReporting
 

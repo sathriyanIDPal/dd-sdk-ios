@@ -6,7 +6,7 @@
 
 import Foundation
 import DatadogInternal
-import CrashReporter
+@_implementationOnly import CrashReporter
 
 internal extension PLCrashReporterConfig {
     /// `PLCR` configuration used for `DatadogCrashReporting`

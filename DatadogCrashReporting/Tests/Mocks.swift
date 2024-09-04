@@ -5,7 +5,7 @@
  */
 
 import DatadogInternal
-import CrashReporter
+@_implementationOnly import CrashReporter
 
 @testable import DatadogCrashReporting
 
