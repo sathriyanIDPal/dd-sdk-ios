@@ -7,8 +7,10 @@ let opentelemetry = ProcessInfo.processInfo.environment["OTEL_SWIFT"] != nil ?
     (name: "opentelemetry-swift", url: "https://github.com/open-telemetry/opentelemetry-swift.git") :
     (name: "opentelemetry-swift-packages", url: "https://github.com/DataDog/opentelemetry-swift-packages.git")
 
+let enableLibraryEvolutionSwiftSettings: SwiftSetting = .unsafeFlags(["-enable-library-evolution"])
+
 let internalSwiftSettings: [SwiftSetting] = ProcessInfo.processInfo.environment["DD_BENCHMARK"] != nil ?
-    [.define("DD_BENCHMARK")] : []
+    [.define("DD_BENCHMARK"), enableLibraryEvolutionSwiftSettings] : [enableLibraryEvolutionSwiftSettings]
 
 let package = Package(
     name: "Datadog",
@@ -70,10 +72,7 @@ let package = Package(
             ],
             swiftSettings: [
                 .define("SPM_BUILD"),
-                .unsafeFlags([
-                    "-enable-library-evolution",
-                    "-emit-module-interface"
-                ])
+                enableLibraryEvolutionSwiftSettings
             ]
         ),
         .target(
@@ -85,11 +84,13 @@ let package = Package(
                 .target(name: "DatadogRUM"),
                 .target(name: "DatadogSessionReplay"),
             ],
-            path: "DatadogObjc/Sources"
+            path: "DatadogObjc/Sources",
+            swiftSettings: [ enableLibraryEvolutionSwiftSettings ]
         ),
         .target(
             name: "DatadogPrivate",
-            path: "DatadogCore/Private"
+            path: "DatadogCore/Private",
+            swiftSettings: [ enableLibraryEvolutionSwiftSettings ]
         ),
 
         .target(

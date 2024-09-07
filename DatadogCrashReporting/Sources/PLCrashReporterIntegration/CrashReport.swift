@@ -5,7 +5,7 @@
  */
 
 import Foundation
-@_implementationOnly import CrashReporter
+import CrashReporter
 
 /// An intermediate representation of crash report when transforming `PLCrashReport` to `DDCrashReport`.
 ///

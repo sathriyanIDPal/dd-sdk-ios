@@ -6,7 +6,7 @@
 
 import XCTest
 @testable import DatadogCrashReporting
-@_implementationOnly import CrashReporter
+import CrashReporter
 
 class PLCrashReporterIntegrationTests: XCTestCase {
     func testGivenPLCrashReporter_whenInitializingWithDDConfig_itSetsCustomPath() throws {

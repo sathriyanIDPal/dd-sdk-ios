@@ -6,7 +6,7 @@
 
 import XCTest
 @testable import DatadogCrashReporting
-@_implementationOnly import CrashReporter
+import CrashReporter
 
 class CrashReportTests: XCTestCase {
     // MARK: - Consistency

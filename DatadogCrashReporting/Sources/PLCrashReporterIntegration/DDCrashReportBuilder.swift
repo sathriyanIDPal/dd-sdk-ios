@@ -5,7 +5,7 @@
  */
 
 import DatadogInternal
-@_implementationOnly import CrashReporter
+import CrashReporter
 
 /// Builds `DDCrashReport` from `PLCrashReport`.
 internal struct DDCrashReportBuilder {
